@@ -21,13 +21,19 @@
 <body>
     <div id="app">
         <div class="wrapper ">
-            @include('layouts.partial.sidebar')
+            @if (Request::is('admin*'))
+                @include('layouts.partial.sidebar')
+            @endif
             <div class="main-panel">
               <!-- Navbar -->
+              @if (Request::is('admin*'))
                 @include('layouts.partial.topbar')
+              @endif
               <!-- End Navbar -->
                 @yield('content')
-              @include('layouts.partial.footer')
+                @if (Request::is('admin*'))
+                    @include('layouts.partial.footer')
+                @endif
             </div>
           </div>
           {{-- <div class="fixed-plugin">
