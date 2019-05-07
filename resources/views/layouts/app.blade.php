@@ -46,7 +46,7 @@
             <!-- END MENU SIDEBAR-->
         @endif
         <!-- PAGE CONTAINER-->
-        <div class="{{ Request::is('login*') ? '' : 'page-container' }}">
+        <div class="{{ Request::is('login*') || Request::is('password*') ? '' : 'page-container' }}">
             <!-- HEADER DESKTOP-->
             @if (Request::is('admin*'))
                 @include('layouts.partial.header.desktop')

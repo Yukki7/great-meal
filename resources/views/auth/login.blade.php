@@ -19,11 +19,11 @@
                                 </div>
                             @endif
                             <label for="email">{{ __('E-Mail Address') }}</label>
-                            <input id="email" class="au-input au-input--full {{ $errors->has('email') ? ' alert alert-danger' : '' }}" name="email" value="{{ old('email') }}" type="email" name="email" placeholder="Email" required autofocus>
+                            <input id="email" class="au-input au-input--full {{ $errors->has('email') ? ' is-invalid form-control' : '' }}" name="email" value="{{ old('email') }}" type="email" name="email" placeholder="Email" required autofocus>
                         </div>
                         <div class="form-group">
                             <label for="password">{{ __('Password') }}</label>
-                            <input id="password" class="au-input au-input--full{{ $errors->has('email') ? ' alert alert-danger' : '' }}" type="password" name="password" placeholder="Password" required>
+                            <input id="password" class="au-input au-input--full{{ $errors->has('email') ? ' is-invalid form-control' : '' }}" type="password" name="password" placeholder="Password" required>
                         </div>
                         <div class="login-checkbox">
                             <label>

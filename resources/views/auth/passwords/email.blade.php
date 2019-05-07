@@ -24,7 +24,7 @@
                         @csrf
                         <div class="form-group">
                             <label>{{ __('E-Mail Address') }}</label>
-                            <input id="email" class="au-input au-input--full{{ $errors->has('email') ? ' alert alert-danger' : '' }}" type="email" name="email" placeholder="Email" value="{{ old('email') }}" required>
+                            <input id="email" class="au-input au-input--full{{ $errors->has('email') ? ' is-invalid form-control' : '' }}" type="email" name="email" placeholder="Email" value="{{ old('email') }}" required>
                         </div>
                         <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">{{ __('Send Password Reset Link') }}</button>
                     </form>

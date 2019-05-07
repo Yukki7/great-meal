@@ -2,7 +2,8 @@
 
 
 @section('title', 'Slider')
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+{{-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css"> --}}
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 @push('css')
 
 @endpush
@@ -11,7 +12,7 @@
 <div class="main-content">
     <div class="section__content section__content--p30">
         <div class="container-fluid">
-            <div class="row">
+            <div class="row m-t-30">
                 <div class="col-lg-12">
                     @if (session('successMsg'))
                         <div class="sufee-alert alert with-close alert-primary alert-dismissible fade show">
@@ -56,8 +57,8 @@
                             </div> --}}
                         </div>
                     </div>
-                    <div class="table-responsive table--no-card m-b-30">
-                        <table id="table" class="table table-borderless table-striped table-earning" style="width:100%">
+                    <div class="table-responsive m-b-40">
+                        <table id="table" class="table table-borderless table-data3" style="width:100%">
                             <thead>
                                 <tr>
                                     <th>ID</th>
@@ -66,6 +67,7 @@
                                     <th>Image</th>
                                     <th>Created At</th>
                                     <th>Updated At</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -77,10 +79,32 @@
                                     <td>{{ $slider->image }}</td>
                                     <td>{{ $slider->created_at }}</td>
                                     <td>{{ $slider->updated_at }}</td>
+                                    <td>
+                                        <div class="table-data-feature">
+                                            {{-- <button class="item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Send">
+                                                <i class="zmdi zmdi-mail-send"></i>
+                                            </button> --}}
+                                            <button class="item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit">
+                                                <i class="zmdi zmdi-edit"></i>
+                                            </button>
+                                            <button class="item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete">
+                                                <i class="zmdi zmdi-delete"></i>
+                                            </button>
+                                            {{-- <button class="item" data-toggle="tooltip" data-placement="top" title="" data-original-title="More">
+                                                <i class="zmdi zmdi-more"></i>
+                                            </button> --}}
+                                        </div>
+                                    </td>
                                 </tr>
                                 @endforeach
                             </tbody>
                         </table>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="copyright">
                     </div>
                 </div>
             </div>
@@ -90,7 +114,8 @@
 @endsection
 
 @push('scripts')
-<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+{{-- <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script> --}}
 <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 <script>
     $(document).ready(function() {
