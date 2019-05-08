@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 
-@section('title', 'Create Slider')
+@section('title', 'Category')
 {{-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css"> --}}
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 @push('css')
@@ -26,10 +26,10 @@
                     <div class="table-data__tool">
                         <div class="table-data__tool-left">
                             <h3 class="title-1 m-b-10">
-                                <i class="zmdi zmdi-play-circle"></i> Slider Data Table</h3>
+                                <i class="zmdi zmdi-view-list"></i> Category Data Table</h3>
                         </div>
                         <div class="table-data__tool-right">
-                            <a href="{{ route('slider.create') }}"><button
+                            <a href="{{ route('category.create') }}"><button
                                     class="au-btn au-btn-icon au-btn--green au-btn--small">
                                     <i class="zmdi zmdi-plus"></i>Add New</button></a>
                             {{-- <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
@@ -42,29 +42,26 @@
                             </div> --}}
                         </div>
                     </div>
-
                     <div class="table-responsive m-b-40">
                         <table id="table" class="table table-borderless table-data3" style="width:100%">
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Title</th>
-                                    <th>Sub Title</th>
-                                    <th>Image</th>
+                                    <th>Name</th>
+                                    <th>Slug</th>
                                     <th>Created At</th>
                                     <th>Updated At</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($sliders as $key=>$slider)
+                                @foreach ($categories as $key=>$category)
                                 <tr>
                                     <td>{{ $key + 1 }}</td>
-                                    <td>{{ $slider->title }}</td>
-                                    <td>{{ $slider->sub_title }}</td>
-                                    <td>{{ $slider->image }}</td>
-                                    <td>{{ $slider->created_at }}</td>
-                                    <td>{{ $slider->updated_at }}</td>
+                                    <td>{{ $category->name }}</td>
+                                    <td>{{ $category->slug }}</td>
+                                    <td>{{ $category->created_at }}</td>
+                                    <td>{{ $category->updated_at }}</td>
                                     <td>
                                         <div class="table-data-feature">
                                             {{-- <button class="item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Send">
@@ -72,11 +69,11 @@
                                             </button> --}}
                                             <button class="item" data-toggle="tooltip" data-placement="top" title=""
                                                 data-original-title="Edit">
-                                                <a href="{{ route('slider.edit', $slider->id) }}"><i
+                                                <a href="{{ route('category.edit', $category->id) }}"><i
                                                         class="zmdi zmdi-edit"></i></a>
                                             </button>
-                                            <form id="delete-form-{{ $slider->id }}" method="POST"
-                                                action="{{ route('slider.destroy', $slider->id) }}"
+                                            <form id="delete-form-{{ $category->id }}" method="POST"
+                                                action="{{ route('category.destroy', $category->id) }}"
                                                 style="display:none">
                                                 @csrf
                                                 @method('DELETE')
@@ -85,7 +82,7 @@
                                             <button class="item" data-toggle="tooltip" data-placement="top" title=""
                                                 data-original-title="Delete" onclick="if(confirm('Are you sure? You want to delete this?')){
                                                             event.preventDefault();
-                                                            document.getElementById('delete-form-{{ $slider->id }}')
+                                                            document.getElementById('delete-form-{{ $category->id }}')
                                                                     .submit();
                                                         } else {
                                                                 event.preventDefault();

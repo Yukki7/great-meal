@@ -15,9 +15,9 @@
                     <a href="{{ route('slider.index') }}">
                         <i class="fas fa-play-circle"></i>Sliders</a>
                 </li>
-                <li>
-                    <a href="table.html">
-                        <i class="fas fa-table"></i>Tables</a>
+                <li class="{{ Request::is('admin/category*') ? 'active' : '' }}">
+                    <a href="{{ route('category.index') }}">
+                        <i class="fas fa-th-list"></i>Categories</a>
                 </li>
                 <li>
                     <a href="form.html">

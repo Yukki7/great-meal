@@ -18,5 +18,6 @@ Route::get('/', 'HomeController@index')->name('welcome');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'namespace' => 'Admin'], function () {
     Route::get('dashboard', 'DashboardController@index')->name('admin.dashboard');
-    Route::resource('slider', 'SliderController');
+    Route::resource('slider', 'SliderController')->except('show');
+    Route::resource('category', 'CategoryController')->except('show');
 });

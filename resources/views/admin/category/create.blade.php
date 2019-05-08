@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 
-@section('title', 'Edit Slider')
+@section('title', 'Create Category')
 
 @push('css')
 
@@ -28,27 +28,18 @@
                         @endif
                         <div class="card">
                             <div class="card-header">
-                                <strong>Edit Slider</strong>
+                                <strong>Add New Category</strong>
                             </div>
-                            <form method="POST" action="{{ route('slider.update', $slider->id) }}" enctype="multipart/form-data">
+                            <form method="POST" action="{{ route('category.store') }}">
                                 @csrf
-                                @method('PUT')
                                 <div class="card-body card-block">
                                     <div class="form-group">
-                                        <label for="title" class=" form-control-label">Title</label>
-                                    <input type="text" id="title" value="{{ $slider->title }}" class="form-control" name="title" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="sub_title" class=" form-control-label">Sub Title</label>
-                                        <input type="text" id="sub_title" value="{{ $slider->sub_title }}" class="form-control" name="sub_title" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="image" class=" form-control-label">Image</label>
-                                        <input type="file" id="image" class="form-control" name="image">
+                                        <label for="name" class=" form-control-label">Name</label>
+                                        <input type="text" id="name" placeholder="Enter Name" class="form-control" name="name" required>
                                     </div>
                                 </div>
                                 <div class="card-footer">
-                                    <a href="{{ route('slider.index') }}" class="btn btn-secondary btn-sm">
+                                    <a href="{{ route('category.index') }}" class="btn btn-secondary btn-sm">
                                         <i class="fa fa-backward"></i> Back
                                     </a>
                                     <button type="reset" class="btn btn-danger btn-sm">
