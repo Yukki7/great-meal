@@ -15,13 +15,13 @@
             <div class="row m-t-30">
                 <div class="col-lg-12">
                     @if (session('successMsg'))
-                        <div class="sufee-alert alert with-close alert-primary alert-dismissible fade show">
-                            <span class="badge badge-pill badge-primary">Success</span>
-                                {{ session('successMsg') }}
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">×</span>
-                            </button>
-                        </div>
+                    <div class="sufee-alert alert with-close alert-primary alert-dismissible fade show">
+                        <span class="badge badge-pill badge-primary">Success</span>
+                        {{ session('successMsg') }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
                     @endif
                     <div class="table-data__tool">
                         {{-- <div class="table-data__tool-left">
@@ -45,8 +45,9 @@
                                 <i class="zmdi zmdi-filter-list"></i>filters</button>
                         </div> --}}
                         <div class="table-data__tool-right">
-                            <a href="{{ route('slider.create') }}"><button class="au-btn au-btn-icon au-btn--green au-btn--small">
-                                <i class="zmdi zmdi-plus"></i>Add New</button></a>
+                            <a href="{{ route('slider.create') }}"><button
+                                    class="au-btn au-btn-icon au-btn--green au-btn--small">
+                                    <i class="zmdi zmdi-plus"></i>Add New</button></a>
                             {{-- <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
                                 <select class="js-select2" name="type">
                                     <option selected="selected">Export</option>
@@ -84,10 +85,26 @@
                                             {{-- <button class="item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Send">
                                                 <i class="zmdi zmdi-mail-send"></i>
                                             </button> --}}
-                                            <button class="item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit">
-                                                <i class="zmdi zmdi-edit"></i>
+                                            <button class="item" data-toggle="tooltip" data-placement="top" title=""
+                                                data-original-title="Edit">
+                                                <a href="{{ route('slider.edit', $slider->id) }}"><i
+                                                        class="zmdi zmdi-edit"></i></a>
                                             </button>
-                                            <button class="item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete">
+                                            <form id="delete-form-{{ $slider->id }}" method="POST"
+                                                action="{{ route('slider.destroy', $slider->id) }}"
+                                                style="display:none">
+                                                @csrf
+                                                @method('DELETE')
+
+                                            </form>
+                                            <button class="item" data-toggle="tooltip" data-placement="top" title=""
+                                                data-original-title="Delete" onclick="if(confirm('Are you sure? You want to delete this?')){
+                                                            event.preventDefault();
+                                                            document.getElementById('delete-form-{{ $slider->id }}')
+                                                                    .submit();
+                                                        } else {
+                                                                event.preventDefault();
+                                                            }">
                                                 <i class="zmdi zmdi-delete"></i>
                                             </button>
                                             {{-- <button class="item" data-toggle="tooltip" data-placement="top" title="" data-original-title="More">
