@@ -49,8 +49,8 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Name</th>
-                                    <th>Description</th>
                                     <th>Image</th>
+                                    <th>Description</th>
                                     <th>Category Name</th>
                                     <th>Price</th>
                                     <th>Created At</th>
@@ -63,8 +63,9 @@
                                 <tr>
                                     <td>{{ $key + 1 }}</td>
                                     <td>{{ $item->name }}</td>
+                                    {{-- <td>{{ $item->image }}</td> --}}
+                                    <td><img src="{{ asset('uploads/item/' .$item->image) }}"></td>
                                     <td>{{ $item->description }}</td>
-                                    <td>{{ $item->image }}</td>
                                     <td>{{ $item->category->name }}</td>
                                     <td>{{ $item->price }}</td>
                                     <td>{{ $item->created_at }}</td>
