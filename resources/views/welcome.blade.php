@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- <link rel="shortcut icon" href="{{ asset('frontend/images/star.png') }}" type="favicon/ico" /> -->
 
-        <title>Mamma's Kitchen</title>
+        <title>Greate Meal</title>
 
         <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ asset('frontend/css/font-awesome.min.css') }}">
@@ -17,7 +17,7 @@
         <link rel="stylesheet" href="{{ asset('frontend/css/pricing.css') }}">
         <link rel="stylesheet" href="{{ asset('frontend/css/main.css') }}">
 
-        {{-- <style>
+        <style>
             @foreach($sliders as $key => $slider)
                 .owl-carousel .owl-wrapper, .owl-carousel .owl-item:nth-child({{ $key +1 }}) .item
                     {
@@ -25,7 +25,7 @@
                         background-size: cover;
                     }
             @endforeach
-        </style> --}}
+        </style>
 
         <script src="{{ asset('frontend/js/jquery-1.11.2.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('frontend/js/jquery.flexslider.min.js') }}"></script>
