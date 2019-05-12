@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 
-@section('title', 'Create Slider')
+@section('title', 'Slider')
 {{-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css"> --}}
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 @push('css')
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 
 @endpush
 

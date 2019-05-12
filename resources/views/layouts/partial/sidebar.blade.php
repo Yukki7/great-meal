@@ -19,9 +19,9 @@
                     <a href="{{ route('category.index') }}">
                         <i class="fas fa-th-list"></i>Categories</a>
                 </li>
-                <li>
-                    <a href="form.html">
-                        <i class="far fa-check-square"></i>Forms</a>
+                <li class="{{ Request::is('admin/item*') ? 'active' : '' }}">
+                    <a href="{{ route('item.index') }}">
+                        <i class="fas fa-th"></i>Items</a>
                 </li>
                 <li>
                     <a href="#">

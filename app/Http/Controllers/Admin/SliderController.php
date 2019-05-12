@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Slider;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
 
 class SliderController extends Controller
 {
@@ -105,10 +106,10 @@ class SliderController extends Controller
         $image = $request->file('image');
         $slug = str_slug($request->title);
         $slider = Slider::find($id);
-        if (file_exists('uploads/slider/'. $slider->image)) {
-            unlink('uploads/slider/'. $slider->image);
-        }
         if (isset($image)) {
+            if (file_exists('uploads/slider/'. $slider->image)) {
+                unlink('uploads/slider/'. $slider->image);
+            }
             $currentDate = Carbon::now()->toDateString();
             $imageName = $slug .'-'. $currentDate .'-'. uniqid() .'.'. $image->getClientOriginalExtension();
             if (!file_exists('uploads/slider')) {
@@ -117,7 +118,10 @@ class SliderController extends Controller
             $image->move('uploads/slider', $imageName);
         }
         else {
-            $imageName = $slider->image;
+            $currentDate = Carbon::now()->toDateString();
+            $imageName = $slug .'-'. $currentDate .'-'. uniqid() .'.'. substr($slider->image, -3);
+            rename('uploads/slider/' .$slider->image, 'uploads/slider/' .$imageName);
+            // Storage::move('uploads/slider/' .$slider->image, 'uploads/slider/' .$imageName);
         }
 
         $slider->title = $request->title;
@@ -136,9 +140,9 @@ class SliderController extends Controller
     public function destroy($id)
     {
         $slider = Slider::find($id);
-            if (file_exists('uploads/slider/'. $slider->image)) {
-                unlink('uploads/slider/'. $slider->image);
-            }
+        if (file_exists('uploads/slider/'. $slider->image)) {
+            unlink('uploads/slider/'. $slider->image);
+        }
         $slider->delete();
         return redirect()->back()->with('successMsg', 'Slider Successfully Deleted');
     }

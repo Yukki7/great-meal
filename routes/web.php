@@ -20,4 +20,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'namespace' => 'Admin
     Route::get('dashboard', 'DashboardController@index')->name('admin.dashboard');
     Route::resource('slider', 'SliderController')->except('show');
     Route::resource('category', 'CategoryController')->except('show');
+    Route::resource('item', 'ItemController')->except('show');
+
 });
