@@ -62,12 +62,14 @@ class ItemController extends Controller
         }
 
         $item = new Item();
-        $item->category_id = $request->category;
         $item->name = $request->name;
         $item->description = $request->description;
         $item->price = $request->price;
         $item->image = $imageName;
         $item->save();
+
+        $categories = Category::find($request->category);
+        $item->categories()->attach($categories);
         return redirect()->route('item.index')->with('successMsg', 'Item Successfully Saved');
     }
 
@@ -131,12 +133,14 @@ class ItemController extends Controller
             rename('uploads/item/' .$item->image, 'uploads/item/' .$imageName);
         }
 
-        $item->category_id = $request->category;
         $item->name = $request->name;
         $item->description = $request->description;
         $item->price = $request->price;
         $item->image = $imageName;
         $item->save();
+
+        $categories = Category::find($request->category);
+        $item->categories()->sync($categories);
         return redirect()->route('item.index')->with('successMsg', 'Item Successfully Updated');
     }
 

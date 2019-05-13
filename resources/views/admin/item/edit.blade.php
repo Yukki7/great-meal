@@ -4,7 +4,73 @@
 @section('title', 'Edit Item')
 
 @push('css')
+<style>
+    ul.ks-cboxtags li {
+        display: inline;
+    }
 
+    ul.ks-cboxtags li label {
+        display: inline-block;
+        background-color: rgba(255, 255, 255, .9);
+        border: 2px solid rgba(139, 139, 139, .3);
+        color: #adadad;
+        border-radius: 25px;
+        white-space: nowrap;
+        margin: 3px 0px;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+        transition: all .2s;
+    }
+
+    ul.ks-cboxtags li label {
+        padding: 8px 12px;
+        cursor: pointer;
+    }
+
+    ul.ks-cboxtags li label::before {
+        display: inline-block;
+        font-style: normal;
+        font-variant: normal;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        font-size: 12px;
+        padding: 2px 6px 2px 2px;
+        content: "\f067";
+        transition: transform .3s ease-in-out;
+    }
+
+    ul.ks-cboxtags li input[type="checkbox"]:checked+label::before {
+        content: "\f00c";
+        transform: rotate(-360deg);
+        transition: transform .3s ease-in-out;
+    }
+
+    ul.ks-cboxtags li input[type="checkbox"]:checked+label {
+        border: 2px solid #1bdbf8;
+        background-color: #12bbd4;
+        color: #fff;
+        transition: all .2s;
+    }
+
+    ul.ks-cboxtags li input[type="checkbox"] {
+        display: absolute;
+    }
+
+    ul.ks-cboxtags li input[type="checkbox"] {
+        position: absolute;
+        opacity: 0;
+    }
+
+    ul.ks-cboxtags li input[type="checkbox"]:focus+label {
+        border: 2px solid #e9a1ff;
+    }
+</style>
 @endpush
 
 @section('content')
@@ -37,13 +103,24 @@
                             <div class="card-body card-block">
                                 <div class="form-group">
                                     <label for="category" class=" form-control-label">Category</label>
-                                    <select id="category" class="form-control" name="category" required>
-                                        <option value="{{ $item->category_id }}" hidden>{{ $item->category->name }}
-                                        </option>
-                                        @foreach ($categories as $category)
-                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                        @endforeach
-                                    </select>
+                                    <div class="form-check ">
+                                        <ul class="ks-cboxtags">
+                                            @foreach ($categories as $category)
+                                            <li>
+                                                <input type="checkbox" id="category-{{ $category->id }}"
+                                                    name="category[]" value="{{ $category->id }}"
+                                                    class="form-check-input"
+                                                    @foreach ($item->categories as $checked)
+                                                        @if ($checked->id == $category->id)
+                                                            checked
+                                                        @endif
+                                                    @endforeach
+                                                    >
+                                                <label for="category-{{ $category->id }}">{{ $category->name }}</label>
+                                            </li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="name" class=" form-control-label">Name</label>
@@ -62,7 +139,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="image" class=" form-control-label">Image</label>
-                                    <input type="file" id="image" class="form-control" name="image" value="{{ $item->image }}">
+                                    <input type="file" id="image" class="form-control" name="image"
+                                        value="{{ $item->image }}">
                                 </div>
                             </div>
                             <div class="card-footer">

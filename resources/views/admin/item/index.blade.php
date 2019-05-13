@@ -51,7 +51,7 @@
                                     <th>Name</th>
                                     <th>Image</th>
                                     <th>Description</th>
-                                    <th>Category Name</th>
+                                    <th>Category</th>
                                     <th>Price</th>
                                     <th>Created At</th>
                                     <th>Updated At</th>
@@ -66,7 +66,11 @@
                                     {{-- <td>{{ $item->image }}</td> --}}
                                     <td><img src="{{ asset('uploads/item/' .$item->image) }}"></td>
                                     <td>{{ $item->description }}</td>
-                                    <td>{{ $item->category->name }}</td>
+                                    <td>
+                                        @foreach ($item->categories as $category)
+                                            <span class="block-email">{{ $category->name }}</span>
+                                        @endforeach
+                                    </td>
                                     <td>{{ $item->price }}</td>
                                     <td>{{ $item->created_at }}</td>
                                     <td>{{ $item->updated_at }}</td>
