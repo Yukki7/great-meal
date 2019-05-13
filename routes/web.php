@@ -13,6 +13,7 @@
 
 
 Auth::routes(['register' => false]);
+Route::post('/reservation', 'ReservationController@reserve')->name('reservation.reserve');
 
 Route::get('/', 'HomeController@index')->name('welcome');
 
