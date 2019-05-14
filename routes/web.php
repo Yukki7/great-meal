@@ -22,5 +22,5 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'namespace' => 'Admin
     Route::resource('slider', 'SliderController')->except('show');
     Route::resource('category', 'CategoryController')->except('show');
     Route::resource('item', 'ItemController')->except('show');
-
+    Route::get('reservation', 'ReservationController@index')->name('reservation.index');
 });

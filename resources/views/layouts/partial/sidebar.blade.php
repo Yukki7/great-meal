@@ -23,9 +23,9 @@
                     <a href="{{ route('item.index') }}">
                         <i class="fas fa-th"></i>Items</a>
                 </li>
-                <li>
-                    <a href="#">
-                        <i class="fas fa-calendar-alt"></i>Calendar</a>
+                <li class="{{ Request::is('admin/reservation*') ? 'active' : '' }}">
+                    <a href="{{ route('reservation.index') }}">
+                        <i class="fa fa-check-square"></i>Reservations</a>
                 </li>
                 <li>
                     <a href="map.html">
