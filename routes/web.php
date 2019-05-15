@@ -23,4 +23,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'namespace' => 'Admin
     Route::resource('category', 'CategoryController')->except('show');
     Route::resource('item', 'ItemController')->except('show');
     Route::get('reservation', 'ReservationController@index')->name('reservation.index');
+    Route::post('reservation/{id}', 'ReservationController@status')->name('reservation.status');
+    Route::delete('reservation/{id}', 'ReservationController@destroy')->name('reservation.destroy');
 });

@@ -5,7 +5,7 @@
 {{-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css"> --}}
 @push('css')
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 @endpush
 
 @section('content')
@@ -38,7 +38,7 @@
                                     <th>Name</th>
                                     <th>Phone</th>
                                     <th>Email</th>
-                                    <th>Date and Time</th>
+                                    <th>Date_Time</th>
                                     <th>Message</th>
                                     <th>Status</th>
                                     <th>Created At</th>
@@ -64,22 +64,30 @@
                                     <td>{{ $reservation->created_at }}</td>
                                     <td>
                                         <div class="table-data-feature">
-                                            {{-- <button class="item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Send">
-                                                <i class="zmdi zmdi-mail-send"></i>
-                                            </button> --}}
-                                            <button class="item" data-toggle="tooltip" data-placement="top" title=""
-                                                data-original-title="Edit">
-                                                <a href=""><i
-                                                        class="zmdi zmdi-edit"></i></a>
-                                            </button>
+                                            @if ($reservation->status == false)
+                                                <form id="status-form-{{ $reservation->id }}" method="POST"
+                                                    action="{{ route('reservation.status', $reservation->id) }}"
+                                                    style="display:none">
+                                                    @csrf
+                                                </form>
+                                                <button class="btn btn-info btn-sm" style="border-radius: 50%" data-toggle="tooltip" data-placement="top" title=""
+                                                    data-original-title="Confirm" onclick="if(confirm('Are you verify this request by phone?')){
+                                                                event.preventDefault();
+                                                                document.getElementById('status-form-{{ $reservation->id }}')
+                                                                        .submit();
+                                                            } else {
+                                                                    event.preventDefault();
+                                                                }">
+                                                    <i class="fa fa-check"></i>
+                                                </button>
+                                            @endif
                                             <form id="delete-form-{{ $reservation->id }}" method="POST"
-                                                action=""
+                                                action="{{ route('reservation.destroy', $reservation->id) }}"
                                                 style="display:none">
                                                 @csrf
                                                 @method('DELETE')
-
                                             </form>
-                                            <button class="item" data-toggle="tooltip" data-placement="top" title=""
+                                            <button class="btn btn-danger btn-sm" style="border-radius: 50%" data-toggle="tooltip" data-placement="top" title=""
                                                 data-original-title="Delete" onclick="if(confirm('Are you sure? You want to delete this?')){
                                                             event.preventDefault();
                                                             document.getElementById('delete-form-{{ $reservation->id }}')
@@ -87,11 +95,8 @@
                                                         } else {
                                                                 event.preventDefault();
                                                             }">
-                                                <i class="zmdi zmdi-delete"></i>
+                                                <i class="fa fa-trash"></i>
                                             </button>
-                                            {{-- <button class="item" data-toggle="tooltip" data-placement="top" title="" data-original-title="More">
-                                                <i class="zmdi zmdi-more"></i>
-                                            </button> --}}
                                         </div>
                                     </td>
                                 </tr>
@@ -121,4 +126,6 @@
             $('#table').DataTable();
         } );
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+{!! Toastr::message() !!}
 @endpush
