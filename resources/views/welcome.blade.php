@@ -20,14 +20,14 @@
     <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap-datetimepicker.min.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
-    <style>
+    {{-- <style>
         @foreach($sliders as $key=> $slider) .owl-carousel .owl-wrapper, .owl-carousel .owl-item:nth-child( {{ $key +1 }}) .item {
             background: url('{{ asset('uploads/slider/' .$slider->image) }}');
             background-size: cover;
         }
 
         @endforeach
-    </style>
+    </style> --}}
 
     <script src="{{ asset('frontend/js/jquery-1.11.2.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('frontend/js/jquery.flexslider.min.js') }}"></script>
@@ -774,39 +774,31 @@
         </div>
     </section>
 
-    <div class="container-fluid">
-        <div class="row">
-            <div id="map-canvas"></div>
-        </div>
-    </div>
-
-
-
     <section class="contact-form">
         <div class="container">
             <div class="row">
                 <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
                     <div class="row">
-                        <form class="contact-form" method="post" action="contact.php">
-
+                        <form class="contact-form" method="post" action="{{ route('contact.sent') }}">
+                            @csrf
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
-                                    <input name="name" type="text" class="form-control" id="name" required="required"
+                                    <input name="name" type="text" class="form-control" id="name" required
                                         placeholder="  Name">
                                 </div>
                                 <div class="form-group">
-                                    <input name="email" type="email" class="form-control" id="email" required="required"
+                                    <input name="email" type="email" class="form-control" id="email" required
                                         placeholder="  Email">
                                 </div>
                                 <div class="form-group">
                                     <input name="subject" type="text" class="form-control" id="subject"
-                                        required="required" placeholder="  Subject">
+                                        required placeholder="  Subject">
                                 </div>
                             </div>
 
                             <div class="col-md-6 col-sm-6">
                                 <textarea name="message" type="text" class="form-control" id="message" rows="7"
-                                    required="required" placeholder="  Message"></textarea>
+                                    required placeholder="  Message"></textarea>
                             </div>
 
                             <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">

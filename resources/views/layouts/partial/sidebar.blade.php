@@ -27,9 +27,9 @@
                     <a href="{{ route('reservation.index') }}">
                         <i class="fa fa-check-square"></i>Reservations</a>
                 </li>
-                <li>
-                    <a href="map.html">
-                        <i class="fas fa-map-marker-alt"></i>Maps</a>
+                <li class="{{ Request::is('admin/contact*') ? 'active' : '' }}">
+                    <a href="{{ route('contact.index') }}">
+                        <i class="fa fa-commenting"></i>Contact Message</a>
                 </li>
                 <li class="has-sub">
                     <a class="js-arrow" href="#">

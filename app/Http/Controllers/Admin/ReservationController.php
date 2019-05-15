@@ -23,7 +23,7 @@ class ReservationController extends Controller
     }
 
     public function destroy($id) {
-        $reservation = Reservation::find($id)->delete();
+        Reservation::find($id)->delete();
         Toastr::success('Reservation successfully deleted', 'Success');
         return redirect()->back();
     }
