@@ -858,7 +858,7 @@
     <script>
         $(function() {
             $('#datetimepicker1').datetimepicker({
-                format: "dd-mm-yyyy - hh:ii",
+                format: "dd-mm-yyyy hh:ii",
                 // showMeridian: 1,
                 weekStart: 1,
                 todayBtn:  1,
