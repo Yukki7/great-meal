@@ -30,6 +30,7 @@
     </style> --}}
 
     <script src="{{ asset('frontend/js/jquery-1.11.2.min.js') }}"></script>
+    {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> --}}
     <script type="text/javascript" src="{{ asset('frontend/js/jquery.flexslider.min.js') }}"></script>
     <script type="text/javascript">
         $(window).load(function() {
@@ -67,10 +68,10 @@
             <div class="collapse navbar-collapse" id="Food-fair-toggle">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#about">about</a></li>
-                    <li><a href="#pricing">pricing</a></li>
-                    <li><a href="#great-place-to-enjoy">beer</a></li>
-                    <li><a href="#breakfast">bread</a></li>
-                    <li><a href="#featured-dish">featured</a></li>
+                    <li><a href="#menu-list">menu list</a></li>
+                    {{-- <li><a href="#great-place-to-enjoy">beer</a></li> --}}
+                    {{-- <li><a href="#breakfast">bread</a></li> --}}
+                    {{-- <a><a href="#featured-dish">featured</a></a> --}}
                     <li><a href="#reserve">reservation</a></li>
                     <li><a href="#contact">contact</a></li>
                 </ul>
@@ -128,7 +129,7 @@
 
 
     <!--==  7. Afordable Pricing  ==-->
-    <section id="pricing" class="pricing">
+    <section id="menu-list" class="menu-list">
         <div id="w">
             <div class="pricing-filter">
                 <div class="pricing-filter-wrapper">
@@ -188,7 +189,7 @@
     </section>
 
 
-    <!--== 8. Great Place to enjoy ==-->
+    {{-- <!--== 8. Great Place to enjoy ==-->
     <section id="great-place-to-enjoy" class="great-place-to-enjoy">
         <img class="img-responsive section-icon hidden-sm hidden-xs"
             src="{{ asset('frontend/images/icons/beer_black.png') }}">
@@ -204,11 +205,11 @@
                 </div> <!-- /.dis-table -->
             </div> <!-- /.row -->
         </div> <!-- /.wrapper -->
-    </section> <!-- /#great-place-to-enjoy -->
+    </section> <!-- /#great-place-to-enjoy --> --}}
 
 
 
-    <!--==  9. Our Beer  ==-->
+    {{-- <!--==  9. Our Beer  ==-->
     <section id="beer" class="beer">
         <img class="img-responsive section-icon hidden-sm hidden-xs"
             src="{{ asset('frontend/images/icons/beer_color.png') }}">
@@ -241,11 +242,11 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
 
 
-    <!--== 10. Our Breakfast Menu ==-->
+    {{-- <!--== 10. Our Breakfast Menu ==-->
     <section id="breakfast" class="breakfast">
         <img class="img-responsive section-icon hidden-sm hidden-xs"
             src="{{ asset('frontend/images/icons/bread_black.png') }}">
@@ -261,11 +262,11 @@
                 </div> <!-- /.dis-table -->
             </div> <!-- /.row -->
         </div> <!-- /.wrapper -->
-    </section> <!-- /#breakfast -->
+    </section> <!-- /#breakfast --> --}}
 
 
 
-    <!--== 11. Our Bread ==-->
+    {{-- <!--== 11. Our Bread ==-->
     <section id="bread" class="bread">
         <img class="img-responsive section-icon hidden-sm hidden-xs"
             src="{{ asset('frontend/images/icons/bread_color.png') }}">
@@ -296,12 +297,12 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
 
 
 
-    <!--== 12. Our Featured Dishes Menu ==-->
+    {{-- <!--== 12. Our Featured Dishes Menu ==-->
     <section id="featured-dish" class="featured-dish">
         <img class="img-responsive section-icon hidden-sm hidden-xs"
             src="{{ asset('frontend/images/icons/food_black.png') }}">
@@ -317,12 +318,12 @@
                 </div> <!-- /.dis-table -->
             </div> <!-- /.row -->
         </div> <!-- /.wrapper -->
-    </section> <!-- /#featured-dish -->
+    </section> <!-- /#featured-dish --> --}}
 
 
 
 
-    <!--== 13. Menu List ==-->
+    {{-- <!--== 13. Menu List ==-->
     <section id="menu-list" class="menu-list">
         <div class="container">
             <div class="row menu">
@@ -573,11 +574,11 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
 
 
-    <!--== 14. Have a look to our dishes ==-->
+    {{-- <!--== 14. Have a look to our dishes ==-->
 
     <section id="have-a-look" class="have-a-look hidden-xs">
         <img class="img-responsive section-icon hidden-sm hidden-xs"
@@ -636,7 +637,7 @@
                 </div> <!-- /.row -->
             </div> <!-- /.container-fluid -->
         </div> <!-- /.wrapper -->
-    </section>
+    </section> --}}
 
 
 
@@ -820,8 +821,8 @@
                 <div class="col-md-6 col-md-offset-3">
                     <div class="copyright text-center">
                         <p>
-                            &copy; Copyright, 2015 <a href="#">Your Website Link.</a> Theme by <a
-                                href="http:/themewagon.com/" target="_blank">ThemeWagon</a>
+                            &copy; Copyright, 2019 <a href="#">Great Meal.</a> Developed by <a href="https://github.com/Yukki7">Tam K15Fetel </a>Theme by <a href="http:/themewagon.com/"
+                                target="_blank">ThemeWagon</a>
                         </p>
                     </div>
                 </div>
