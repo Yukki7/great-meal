@@ -6,7 +6,7 @@
                 </div>
                 <div class="header-button">
                     <div class="noti-wrap">
-                        <div class="noti__item js-item-menu">
+                        {{-- <div class="noti__item js-item-menu">
                             <i class="zmdi zmdi-comment-more"></i>
                             <span class="quantity">1</span>
                             <div class="mess-dropdown js-dropdown">
@@ -115,7 +115,7 @@
                                     <a href="#">All notifications</a>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="noti__item js-item-menu">
                             <a title="Log Out" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
